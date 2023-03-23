@@ -1,0 +1,23 @@
+.text-field {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.button {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-weight: 900;
+}
+
+#btnSave {
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+}
+#btnDelete {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+.invalid {
+    -fx-border-color: red !important;
+}
