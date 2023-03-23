@@ -40,6 +40,13 @@ public class ManageSubscribersViewController {
             btnNewSubscriber.fire();
         });
         loadAllSubscribers();
+        tblSubscribers.getSelectionModel().selectedItemProperty().addListener((observableValue, old, current) ->{
+            btnDelete.setDisable(current==null);
+            if (current==null) return;
+            txtId.setText(current.getId());
+            txtId.setText(current.getName());
+            txtId.setText(current.getAddress());
+        } );
 
     }
 
@@ -96,6 +103,38 @@ public class ManageSubscribersViewController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+
+        Connection connection=DBConnection.getInstance().getConnection();
+        if (tblSubscribers.getSelectionModel().isEmpty()){
+            try {
+                PreparedStatement stm = connection.prepareStatement(
+                        "insert into Subscriber(id,name,address) values (?,?,?)");
+                stm.setString(1,txtId.getText());
+                stm.setString(2,txtName.getText());
+                stm.setString(3,txtAddress.getText());
+                stm.executeUpdate();
+                Subscriber subscriber = new Subscriber(txtId.getText(), txtName.getText(), txtAddress.getText());
+                tblSubscribers.getItems().add(subscriber);
+                return;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        try {
+            PreparedStatement stm= connection.prepareStatement(
+                    "update Subscriber set name=?,address=?");
+            stm.setString(2,txtName.getText());
+            stm.setString(3,txtAddress.getText());
+            stm.executeUpdate();
+            Subscriber selectedSubscriber = tblSubscribers.getSelectionModel().getSelectedItem();
+            selectedSubscriber.setName(txtName.getText());
+            selectedSubscriber.setAddress(txtAddress.getText());
+            tblSubscribers.refresh();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
 
     }
 
