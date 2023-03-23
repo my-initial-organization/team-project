@@ -15,7 +15,7 @@
       <HBox layoutX="51.0" layoutY="74.0">
          <children>
             <Label prefHeight="28.0" prefWidth="80.0" text="Id" />
-            <TextField fx:id="txtId" prefHeight="29.0" prefWidth="445.0" />
+            <TextField fx:id="txtId" editable="false" prefHeight="29.0" prefWidth="445.0" />
          </children>
       </HBox>
       <HBox layoutX="51.0" layoutY="114.0">
@@ -31,7 +31,7 @@
          </children>
       </HBox>
       <Button fx:id="btnSave" layoutX="132.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="29.0" prefWidth="101.0" text="Save" />
-      <Button fx:id="btnDelete" layoutX="278.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="29.0" prefWidth="101.0" text="Delete" />
+      <Button fx:id="btnDelete" disable="true" layoutX="278.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="29.0" prefWidth="101.0" text="Delete" />
       <TableView fx:id="tblSubscribers" layoutX="21.0" layoutY="248.0" prefHeight="258.0" prefWidth="562.0">
         <columns>
           <TableColumn prefWidth="130.0" text="Id" />

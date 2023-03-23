@@ -45,7 +45,16 @@ public class DashboardController {
     }
 
     @FXML
-    void lblSubscribersOnAction(ActionEvent event) {
+    void lblSubscribersOnAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/ManageSubscribersView.fxml"));
+        AnchorPane root = fxmlLoader.load();
+
+        Stage stage = (Stage) lblCustomers.getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        stage.setTitle("Manage Student Scene");
+        stage.centerOnScreen();
 
     }
 
