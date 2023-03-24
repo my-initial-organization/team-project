@@ -27,10 +27,6 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Dashboard");
         primaryStage.show();
         primaryStage.centerOnScreen();
-
-        Connection connection = DBConnection.getInstance().getConnection();
-        System.out.println(connection);
-
         generateTables();
 
     }
