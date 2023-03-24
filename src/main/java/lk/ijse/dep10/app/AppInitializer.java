@@ -22,7 +22,5 @@ public class AppInitializer extends Application {
         primaryStage.show();
         primaryStage.centerOnScreen();
 
-        Connection connection = DBConnection.getInstance().getConnection();
-        System.out.println(connection);
     }
 }

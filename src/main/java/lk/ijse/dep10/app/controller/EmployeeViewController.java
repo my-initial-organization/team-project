@@ -111,6 +111,7 @@ public class EmployeeViewController {
     }
 
     private String generateId() {
+        if(employeeList.size() == 0) return "E001";
         Employee employee = employeeList.get(employeeList.size() - 1);
         String id = employee.getId().substring(1);
         return (String.format("E%03d",Integer.parseInt(id)+1));
